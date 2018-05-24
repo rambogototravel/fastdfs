@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="trackerNode" class="com.github.rambo.fastdfs.connection.TrackerNode">
+        <constructor-arg name="host" value="192.168.188.219"/>
+        <constructor-arg name="port" value="22122"/>
+    </bean>
+
+    <bean id="poolConfig" class="com.github.rambo.fastdfs.core.connection.FastDFSPoolConfig">
+
+    </bean>
+
+    <bean id="fastDFSExecutor" class="com.github.rambo.fastdfs.core.FastDFSExecutor">
+        <property name="poolConfig" ref="poolConfig"/>
+    </bean>
+
+    <bean id="fastDFSConnectionFactory" class="com.github.rambo.fastdfs.connection.FastDFSConnectionFactory">
+        <property name="tracker" ref="trackerNode"/>
+        <property name="executor" ref="fastDFSExecutor"/>
+    </bean>
+
+    <bean id="fastDFSTemplate" class="com.github.rambo.fastdfs.core.FastDFSTemplate">
+        <property name="connectionFactory" ref="fastDFSConnectionFactory"/>
+        <property name="executor" ref="fastDFSExecutor"/>
+    </bean>
+
+</beans>
