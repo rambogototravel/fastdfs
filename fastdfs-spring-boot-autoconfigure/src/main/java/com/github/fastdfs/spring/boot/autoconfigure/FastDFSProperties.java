@@ -24,7 +24,7 @@ public class FastDFSProperties {
      */
     private int port = 22122;
 
-    private Pool pool;
+    private Pool pool = new Pool();
 
     private Cluster cluster;
 
