@@ -25,7 +25,7 @@
         <fastdfs.version>1.0.0-SNAPSHOT</fastdfs.version>
         <springframework.version>4.3.13.RELEASE</springframework.version>
         <slf4j.version>1.7.21</slf4j.version>
-        <log4j.version>2.6.2</log4j.version>
+        <log4j.version>2.14.1</log4j.version>
     </properties>
 
     <dependencyManagement>
